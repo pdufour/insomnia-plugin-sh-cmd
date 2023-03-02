@@ -19,6 +19,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Publish to NPM
-        uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
+        uses: luvies/action-yarn-publish@v0.1.1
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # with:
+          # token: ${{ secrets.NPM_TOKEN }}
