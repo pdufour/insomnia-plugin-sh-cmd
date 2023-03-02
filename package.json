@@ -1,27 +1,15 @@
 {
   "name": "insomnia-plugin-shell-exec",
-  
   "version": "0.0.1",
-
   "author": "Paul Dufour",
-
   "description": "Light weight wrapper to execute a shell command and use it's output",
-
   "license": "MIT",
-
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pdufour/insomnia-plugin-shell-exec.git"
-  },
-
+  "repository": "git+https://github.com/pdufour/insomnia-plugin-shell-exec.git",
   "bugs": {
     "url": "https://github.com/pdufour/insomnia-plugin-shell-exec/issues"
   },
-
   "main": "index.js",
-
   "homepage": "https://github.com/pdufour/insomnia-plugin-shell-exec#readme",
-
   "insomnia": {
     "name": "shell-exec",
     "description": "Executes given commands using shell"
