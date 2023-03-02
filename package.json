@@ -23,7 +23,7 @@
   "homepage": "https://github.com/mageshwaranr/insomnia-plugin-sh-cmd#readme",
 
   "insomnia": {
-    "name": "sh-cmd",
+    "name": "shell-exec",
     "description": "Executes given commands using OS package"
   }
 }
