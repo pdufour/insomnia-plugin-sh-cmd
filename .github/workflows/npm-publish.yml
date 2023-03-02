@@ -1,26 +1,31 @@
-name: NPM Publish
+name: Node CI
 
-on:
-  push:
-    branches:
-      - master
-      - main
+on: [push]
 
 jobs:
-  publish:
+  build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Use Node.js
+      - uses: actions/checkout@v1
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: '14.x'
-      - name: Install Dependencies
-        run: npm install
-      - name: Publish to NPM
-        uses: luvies/action-yarn-publish@v0.1.1
+          node-version: ${{ matrix.node-version }}
+          registry-url: "https://registry.npmjs.org"
+      - name: Yarn install
+        run: yarn
+        env:
+          CI: true
+      - name: Yarn build
+        run: yarn build
+        env:
+          CI: true
+      - name: Yarn publish
+        run: yarn publish --non-interactive --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        # with:
-          # token: ${{ secrets.NPM_TOKEN }}
