@@ -11,19 +11,19 @@
 
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mageshwaranr/insomnia-plugin-sh-cmd.git"
+    "url": "git+https://github.com/pdufour/insomnia-plugin-shell-exec.git"
   },
 
   "bugs": {
-    "url": "https://github.com/mageshwaranr/insomnia-plugin-sh-cmd/issues"
+    "url": "https://github.com/pdufour/insomnia-plugin-shell-exec/issues"
   },
 
   "main": "index.js",
 
-  "homepage": "https://github.com/mageshwaranr/insomnia-plugin-sh-cmd#readme",
+  "homepage": "https://github.com/pdufour/insomnia-plugin-shell-exec#readme",
 
   "insomnia": {
     "name": "shell-exec",
-    "description": "Executes given commands using OS package"
+    "description": "Executes given commands using shell"
   }
 }
