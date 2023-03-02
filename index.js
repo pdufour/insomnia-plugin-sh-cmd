@@ -1,5 +1,23 @@
 const { promisify } = require('util');
-const exec = promisify(require('child_process').exec)
+const exec = promisify(require('child_process').exec);
+
+const REFRESH_CACHE_TIMEOUT = 10;
+
+const execCmd = async (cmd)  => {
+
+  try {
+    var resp = await exec(cmd);
+  } catch (failed) {
+    console.log('Command execution failed with ' + failed)
+    return failed.stderr;
+  };
+
+  if (type == 'json') {
+    return JSON.parse(resp.stdout.trim()) // add test case
+  }
+
+  return resp.stdout.trim();
+};
 
 module.exports.templateTags = [
   {
@@ -16,24 +34,36 @@ module.exports.templateTags = [
         ],
       },
       {
+        displayName: 'Cache results',
+        type: 'boolean',
+        options: [
+          { displayName: 'Enable caching of results (fresh results are still fetched in the background)', value: true },
+          { displayName: 'Don\'t enable caching of results', value: false }
+        ],
+      },
+      {
         displayName: 'Command/shell to be executed',
         help: 'Executes the given command using require("child_process").exec command',
         type: 'string',
       }
     ],
     async run(context, type = 'string', cmd) {
+      const cacheKey = `cmd-${cmd}`;
+      const hasCachedValue = await context.store.hasItem(cacheKey);
 
-      try {
-        var resp = await exec(cmd);
-      } catch (failed) {
-        console.log('Command execution failed with ' + failed)
-        return failed.stderr;
-      };
+      if (hasCachedValue) {
+        const cachedValue = await context.store.getItem();
 
-      if (type == 'json') {
-        return JSON.parse(resp.stdout.trim()) // add test case
+        // refresh cache in background
+        setTimeout(async () => {
+          const cacheValue = await execCmd(key);
+          await context.store.setItem(cacheKey, cacheValue);
+        }, REFRESH_CACHE_TIMEOUT);
+
+        return cachedValue;
       }
-      return resp.stdout.trim();
+
+      return execCmd(cmd);
     },
   },
 ];
