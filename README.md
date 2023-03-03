@@ -20,4 +20,5 @@ Insert function either in headers or body either by typing `ctrl + space` or sta
 - Choose JSON type if you want to parse your output using `JSON.parse()`
 
 See screenshot below
+
 ![Screenshot](https://raw.githubusercontent.com/mageshwaranr/insomnia-plugin-sh-cmd/master/example-usage.png)
