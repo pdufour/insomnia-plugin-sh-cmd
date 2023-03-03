@@ -26,6 +26,8 @@ jobs:
         env:
           CI: true
       - name: Yarn publish
-        run: yarn publish --non-interactive --access public
+        run: yarn npm publish --tolerate-republish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
