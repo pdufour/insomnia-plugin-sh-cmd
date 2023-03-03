@@ -11,7 +11,7 @@ You can use this for example to get generate a signed token using existing utili
 1. In the Preferences window, select the Plugins tab.
 1. Search for insomnia-plugin-shell-exec in the list of available plugins.
 1. Click the Install Plugin button next to the insomnia-plugin-shell-exec plugin.
-1. 1. After installation, click the Enable button to activate the plugin.
+1. After installation, click the Enable button to activate the plugin.
 
 ## Usage
 Insert function either in headers or body either by typing `ctrl + space` or start type `{{`
