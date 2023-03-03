@@ -9,7 +9,7 @@ You can use this for example to get generate a signed token using existing utili
 1. Open Insomnia and click on the Insomnia menu in the top left corner of the window.
 1. Select Preferences from the dropdown menu.
 1. In the Preferences window, select the Plugins tab.
-1. Search for insomnia-plugin-shell-exec in the list of available plugins.
+1. Search for`insomnia-plugin-shell-exec` in the list of available plugins.
 1. Click the Install Plugin button next to the insomnia-plugin-shell-exec plugin.
 1. After installation, click the Enable button to activate the plugin.
 
