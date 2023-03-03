@@ -13,5 +13,6 @@
   "insomnia": {
     "name": "shell-exec",
     "description": "Executes given commands using shell"
-  }
+  },
+  "packageManager": "yarn@3.4.1"
 }
